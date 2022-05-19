@@ -1,0 +1,7 @@
+.env
+.venv
+.databutton
+__pycache__
+*.pyc
+tmp
+.ipynb_checkpoints

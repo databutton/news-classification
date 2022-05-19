@@ -1,0 +1,5 @@
+{
+  "uid": "0bd86282-8420-4d18-ad2c-006c66fe7d3d",
+  "name": "news-classification",
+  "exclude": ["venv", ".venv", "__pycache__", ".databutton"]
+}

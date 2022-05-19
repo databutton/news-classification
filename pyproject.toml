@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "news-classification"
+version = "0.1.0"
+description = ""
+authors = ["Øyvind Moldestad <oyvind@databutton.io>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.10"
+databutton2 = "0.6.22"
+pandas = "^1.4.2"
+praw = "^7.6.0"
+transformers = "^4.19.2"
+tensorflow = "^2.9.0"
+torch = "^1.11.0"
+flax = "^0.4.2"
+python-decouple = "^3.6"
+plotly = "^5.8.0"
+chart-studio = "^1.1.0"
+pycountry = "^22.3.5"
+
+[tool.poetry.dev-dependencies]
+jupyterlab = "^3.4.2"
+openpyxl = "^3.0.9"
+black = "^22.3.0"
+huggingface-hub = "^0.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
