@@ -28,8 +28,8 @@ def submissions(subreddit: str) -> Submission:
 
 def load_pipeline():
     # https://huggingface.co/ml6team/bert-base-uncased-city-country-ner
-    tokenizer = AutoTokenizer.from_pretrained("./tmp/ml6team/bert-base-uncased-city-country-ner")
-    model = AutoModelForTokenClassification.from_pretrained("./tmp/ml6team/bert-base-uncased-city-country-ner")
+    tokenizer = AutoTokenizer.from_pretrained("ml6team/bert-base-uncased-city-country-ner")
+    model = AutoModelForTokenClassification.from_pretrained("ml6team/bert-base-uncased-city-country-ner")
 
     return pipeline("ner", model=model, tokenizer=tokenizer, aggregation_strategy="simple")
 
@@ -50,7 +50,7 @@ def find_country(country: str):
         return None
 
 
-@db.repeat_every(seconds=30, name="Fetch new posts from reddit")
+@db.repeat_every(seconds=60, name="Fetch new posts from reddit")
 def main(skip_id_check: bool = False):
     print("Fetching posts from reddit...")
 
