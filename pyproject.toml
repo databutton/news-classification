@@ -1,8 +1,10 @@
 [tool.poetry]
 name = "news-classification"
 version = "0.1.0"
-description = ""
+description = "App classifying posts from reddit to countries and displaying them as a heatmap"
+homepage = "https://next.databutton.com/projects/0bd86282-8420-4d18-ad2c-006c66fe7d3d"
 authors = ["Øyvind Moldestad <oyvind@databutton.io>"]
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.10"
