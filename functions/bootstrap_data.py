@@ -9,8 +9,7 @@ from lib.config import DATA_KEY
 
 # Used to clear the remote dataframe if needed
 def main():
-    df = pd.read_csv("./data/structure.csv")
-    db.dataframes.put(df, DATA_KEY)
+    db.dataframes.put(pd.DataFrame(data=None), DATA_KEY)
 
 
 if __name__ == "__main__":
