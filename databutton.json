@@ -1,5 +1,10 @@
 {
-  "uid": "0bd86282-8420-4d18-ad2c-006c66fe7d3d",
+  "uid": "c81078ce-047a-40b3-a417-d296ba7ee303",
   "name": "news-classification",
-  "exclude": ["venv", ".venv", "__pycache__", ".databutton"]
+  "exclude": [
+    "venv",
+    ".venv",
+    "__pycache__",
+    ".databutton"
+  ]
 }
