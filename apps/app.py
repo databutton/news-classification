@@ -7,7 +7,7 @@ import streamlit as st
 from lib.config import DATA_KEY
 
 
-@db.streamlit("/heatmap", name="Heatmap")
+@db.apps.streamlit("/heatmap", name="Heatmap")
 def countries():
     st.set_page_config(
         page_title="Heatmap - News of the world",
@@ -27,7 +27,7 @@ def countries():
         """
     )
 
-    df = db.dataframes.get(DATA_KEY)
+    df = db.storage.dataframes.get(DATA_KEY)
 
     # Fetch posts scraped from reddit within the previous 24 hours
     df = df[df.scraped_at > datetime.datetime.now() - pd.to_timedelta("24hour")]

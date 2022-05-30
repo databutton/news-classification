@@ -50,12 +50,12 @@ def find_country(country: str):
         return None
 
 
-@db.repeat_every(seconds=60, name="Fetch new posts from reddit")
+@db.jobs.repeat_every(seconds=60, name="Fetch new posts from reddit")
 def main(skip_id_check: bool = False):
     print("Fetching posts from reddit...")
 
     # Load existing dataset
-    df = db.dataframes.get(DATA_KEY)
+    df = db.storage.dataframes.get(DATA_KEY)
 
     nlp = load_pipeline()
 
@@ -94,7 +94,7 @@ def main(skip_id_check: bool = False):
             print("Post already processed")
 
     # Save result
-    df = db.dataframes.put(df, DATA_KEY)
+    df = db.storage.dataframes.put(df, DATA_KEY)
 
 
 if __name__ == "__main__":

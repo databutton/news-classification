@@ -17,7 +17,7 @@ poetry instrall
 Start the dev server using the following command:
 
 ```sh
-poetry run databutton dev
+poetry run databutton start
 ```
 
 Your server should now be running with hot-reload enabled.
@@ -32,7 +32,7 @@ poetry run databutton deploy
 
 ## Fork the project
 
-Delete `databutton.json` and deploy the project using `poetry run databutton dev` to deploy the project to your own account
+Delete `databutton.json` and deploy the project using `poetry run databutton start` to deploy the project to your own account
 
 ## License
 
