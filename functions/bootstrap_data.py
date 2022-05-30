@@ -9,7 +9,7 @@ from lib.config import DATA_KEY
 
 # Used to clear the remote dataframe if needed
 def main():
-    db.storage.dataframes.put(pd.DataFrame(data=None), DATA_KEY)
+    db.storage.dataframes.put(pd.DataFrame(data=None).reset_index(), DATA_KEY)
 
 
 if __name__ == "__main__":
