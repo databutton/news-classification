@@ -1,6 +1,6 @@
 # News classification demo
 
-See full live at [next.databutton.com](https://next.databutton.com/projects/0bd86282-8420-4d18-ad2c-006c66fe7d3d)
+See the project live at [next.databutton.com](https://next.databutton.com/projects/17c80916-7087-4a80-8c75-92dc942a2fca)
 
 Documentation can be found at [docs.databutton.com](https://docs.databutton.com)
 
