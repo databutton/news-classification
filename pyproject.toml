@@ -15,7 +15,7 @@ python-decouple = "^3.6"
 plotly = "^5.8.0"
 # chart-studio = "^1.1.0"
 pycountry = "^22.3.5"
-databutton = "^0.14.1"
+databutton = "^0.14.4"
 torch = "^1.11.0"
 
 [tool.poetry.dev-dependencies]
