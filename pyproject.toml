@@ -11,11 +11,9 @@ python = "^3.9"
 pandas = "^1.4.2"
 praw = "^7.6.0"
 transformers = "^4.19.2"
-python-decouple = "^3.6"
 plotly = "^5.8.0"
-# chart-studio = "^1.1.0"
 pycountry = "^22.3.5"
-databutton = "^0.14.4"
+databutton = "^0.17.0"
 torch = "^1.11.0"
 
 [tool.poetry.dev-dependencies]

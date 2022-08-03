@@ -8,14 +8,13 @@ import databutton as db
 import pandas as pd
 import praw
 import pycountry
-from decouple import config
 from lib.config import DATA_KEY
 from praw.models import Submission
 from transformers import AutoModelForTokenClassification, AutoTokenizer, pipeline
 
 reddit = praw.Reddit(
-    client_id=config("REDDIT_CLIENT_ID"),
-    client_secret=config("REDDIT_CLIENT_SECRET"),
+    client_id=db.secrets.get("REDDIT_CLIENT_ID"),
+    client_secret=db.secrets.get("REDDIT_CLIENT_SECRET"),
     user_agent="news-classification",
     check_for_async=False,
 )
@@ -28,10 +27,16 @@ def submissions(subreddit: str) -> Submission:
 
 def load_pipeline():
     # https://huggingface.co/ml6team/bert-base-uncased-city-country-ner
-    tokenizer = AutoTokenizer.from_pretrained("ml6team/bert-base-uncased-city-country-ner")
-    model = AutoModelForTokenClassification.from_pretrained("ml6team/bert-base-uncased-city-country-ner")
+    tokenizer = AutoTokenizer.from_pretrained(
+        "ml6team/bert-base-uncased-city-country-ner"
+    )
+    model = AutoModelForTokenClassification.from_pretrained(
+        "ml6team/bert-base-uncased-city-country-ner"
+    )
 
-    return pipeline("ner", model=model, tokenizer=tokenizer, aggregation_strategy="simple")
+    return pipeline(
+        "ner", model=model, tokenizer=tokenizer, aggregation_strategy="simple"
+    )
 
 
 def find_country(country: str):
@@ -65,7 +70,11 @@ def main(skip_id_check: bool = False):
             print(f"Processing post: {submission.title}")
             results = nlp(submission.title)
             for result in results:
-                country = find_country(result["word"]) if result["entity_group"] == "COUNTRY" else None
+                country = (
+                    find_country(result["word"])
+                    if result["entity_group"] == "COUNTRY"
+                    else None
+                )
                 if country:
                     df = pd.concat(
                         [
