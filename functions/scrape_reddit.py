@@ -66,7 +66,7 @@ def main(skip_id_check: bool = False):
 
     scraped_at = datetime.datetime.now()
     for submission in submissions("worldnews"):
-        if skip_id_check or not (df["id"] == submission.id).any():
+        if skip_id_check or not ("id" in df and df["id"] == submission.id).any():
             print(f"Processing post: {submission.title}")
             results = nlp(submission.title)
             for result in results:
