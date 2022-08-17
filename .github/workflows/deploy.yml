@@ -1,0 +1,31 @@
+name: Deploy project
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - run: pipx install poetry
+
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"
+          cache: "poetry"
+
+      - name: Set python version
+        run: poetry env use "3.9"
+
+      - name: Install dependencies
+        run: poetry install --no-interaction
+
+      - run: poetry run databutton deploy
+        env:
+          DATABUTTON_TOKEN: ${{ secrets.DATABUTTON_TOKEN }}
