@@ -9,7 +9,7 @@ Documentation can be found at [docs.databutton.com](https://docs.databutton.com)
 ### Install dependencies
 
 ```sh
-poetry instrall
+poetry install
 ```
 
 ### Develop locally
